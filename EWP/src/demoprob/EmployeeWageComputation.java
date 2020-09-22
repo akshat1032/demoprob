@@ -24,6 +24,7 @@ public class EmployeeWageComputation {
 		//checking
 		if (empAttendance == 1) {
 			System.out.println("Employee present");
+<<<<<<< HEAD
 			int empCheck = (int)(Math.floor(Math.random() * 10)% 3);
 			switch(empCheck) {
 				case IS_FULL_TIME:
@@ -40,6 +41,19 @@ public class EmployeeWageComputation {
 					break;
 				default:
 					System.out.println("Insufficient data");	
+=======
+			int empCheck = (int)(Math.floor(Math.random() * 10) % 3);
+			if (empCheck == IS_PART_TIME) {
+				partTimeWage = WAGE_PER_HOUR * PART_HOUR_PER_DAY;
+				System.out.println("Part Time Employee Daily Wage : "+partTimeWage);
+			}
+			else if (empCheck == IS_FULL_TIME){
+				dailyWage = WAGE_PER_HOUR * HOUR_PER_DAY;
+				System.out.println("Full Time Employee Daily Wage : "+dailyWage);
+>>>>>>> 952c5db2d102fd8ae712b294e8cbfc6d3b28ce7f
+			}
+			else {
+				System.out.println("Wrong Data");
 			}
 		}
 		else {
