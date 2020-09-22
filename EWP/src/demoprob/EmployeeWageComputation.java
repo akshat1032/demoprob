@@ -21,13 +21,17 @@ public class EmployeeWageComputation {
 		if (empAttendance == 1) {
 			System.out.println("Employee present");
 			int empCheck = (int)(Math.floor(Math.random() * 10)% 3);
-			if (empCheck == IS_PART_TIME) {
-				partTimeWage = WAGE_PER_HOUR * PART_HOUR_PER_DAY;
-				System.out.println("Part Time Employee Daily Wage : "+partTimeWage);
-			}
-			else {
-				dailyWage = WAGE_PER_HOUR * HOUR_PER_DAY;
-				System.out.println("Full Time Employee Daily Wage : "+dailyWage);
+			switch(empCheck) {
+				case IS_FULL_TIME:
+					dailyWage = WAGE_PER_HOUR * HOUR_PER_DAY;
+					System.out.println("Full Time Employee Daily Wage : "+dailyWage);
+					break;
+				case IS_PART_TIME:
+					partTimeWage = WAGE_PER_HOUR * PART_HOUR_PER_DAY;
+					System.out.println("Part Time Employee Daily Wage : "+partTimeWage);
+					break;
+				default:
+					System.out.println("Insufficient data");	
 			}
 		}
 		else {
