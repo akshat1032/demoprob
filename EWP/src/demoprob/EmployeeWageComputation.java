@@ -18,33 +18,37 @@ public class EmployeeWageComputation {
 		double monthlyWage = 0;
 		double partTimeMonthlyWage = 0;
 		
+		for(int i = 0; i<20; i++) {
+			
 		//storing attendance
 		int empAttendance = (int)(Math.floor(Math.random() * 10) % 2);
 		
 		//checking
 		if (empAttendance == 1) {
-			System.out.println("Employee present");
+			System.out.print("Employee present");
 			int empCheck = (int)(Math.floor(Math.random() * 10)% 3);
 			switch(empCheck) {
 				case IS_FULL_TIME:
+					System.out.print("(Full Time)\n");
 					dailyWage = WAGE_PER_HOUR * HOUR_PER_DAY;
-					System.out.println("Full Time Employee Daily Wage : "+dailyWage);
-					monthlyWage = dailyWage * WORKING_DAY_PER_MONTH;
-					System.out.println("Full Time Employee Monthly Wage : "+monthlyWage);
+					monthlyWage = monthlyWage + dailyWage;
 					break;
 				case IS_PART_TIME:
+					System.out.print("(Part Time)\n");
 					partTimeWage = WAGE_PER_HOUR * PART_HOUR_PER_DAY;
-					System.out.println("Part Time Employee Daily Wage : "+partTimeWage);
-					partTimeMonthlyWage = partTimeWage * WORKING_DAY_PER_MONTH;
-					System.out.println("Part Time Employee Monthly Wage : "+partTimeMonthlyWage);
+					partTimeMonthlyWage = partTimeMonthlyWage + partTimeWage;
 					break;
 				default:
-					System.out.println("Insufficient data");	
+					System.out.println("\nWrong Data");
+					continue;	
 			}
 		}
 		else {
 			System.out.println("Employee absent");
+			}
 		}
+		System.out.println("Full Time Employee Monthly Wage : "+monthlyWage);
+		System.out.println("Part Time Employee Monthly Wage : "+partTimeMonthlyWage);
 	}
 
 }
