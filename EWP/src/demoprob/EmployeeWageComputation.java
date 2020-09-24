@@ -17,36 +17,45 @@ public class EmployeeWageComputation {
 		double partTimeWage = 0;
 		double monthlyWage = 0;
 		double partTimeMonthlyWage = 0;
+		int empAttendance = 0;
 		
-		for(int i = 0; i<20; i++) {
-			
-		//storing attendance
-		int empAttendance = (int)(Math.floor(Math.random() * 10) % 2);
-		
-		//checking
-		if (empAttendance == 1) {
-			System.out.print("Employee present");
 			int empCheck = (int)(Math.floor(Math.random() * 10)% 3);
 			switch(empCheck) {
 				case IS_FULL_TIME:
 					System.out.print("(Full Time)\n");
-					dailyWage = WAGE_PER_HOUR * HOUR_PER_DAY;
-					monthlyWage = monthlyWage + dailyWage;
+					for(int i = 0; i<20; i++) {
+						
+						empAttendance = (int)(Math.floor(Math.random() * 10) % 2);
+						
+						if (empAttendance == 1) {
+							System.out.print("Employee present\n");
+							dailyWage = WAGE_PER_HOUR * HOUR_PER_DAY;
+							monthlyWage = monthlyWage + dailyWage;
+						}
+						else {
+							System.out.print("Employee absent\n");
+						}
+					}
 					break;
 				case IS_PART_TIME:
 					System.out.print("(Part Time)\n");
-					partTimeWage = WAGE_PER_HOUR * PART_HOUR_PER_DAY;
-					partTimeMonthlyWage = partTimeMonthlyWage + partTimeWage;
+					for(int i = 0; i<20; i++) {
+						
+						empAttendance = (int)(Math.floor(Math.random() * 10) % 2);
+						
+						if (empAttendance == 1) {
+							System.out.print("Employee present\n");
+							partTimeWage = WAGE_PER_HOUR * PART_HOUR_PER_DAY;
+							partTimeMonthlyWage = partTimeMonthlyWage + partTimeWage;
+						}
+						else {
+							System.out.print("Employee Absent\n");
+						}
+					}
 					break;
 				default:
-					System.out.println("\nWrong Data");
-					continue;	
+					System.out.println("\nWrong Data");	
 			}
-		}
-		else {
-			System.out.println("Employee absent");
-			}
-		}
 		System.out.println("Full Time Employee Monthly Wage : "+monthlyWage);
 		System.out.println("Part Time Employee Monthly Wage : "+partTimeMonthlyWage);
 	}
